@@ -7,8 +7,8 @@ const express = require('express');
 const mongoose = require('mongoose');
  
 const {connection} = require("./db")
-// const {userRouter}= require("./Routes/user.routes");
-// const { postRouter } = require('./Routes/post.routes');
+const {userRouter}= require("./Routes/user.routes");
+const {postRouter} = require('./Routes/post.routes');
 
 const app = express();
 
@@ -18,12 +18,14 @@ app.use(express.json())
 
   
 
-// app.use("/users",userRouter)
-// app.use("/posts",noteRouter)
-app.use("/",(req,res)=>{
-    res.send("post app")
-    console.log("post app")
-})
+app.use("/users",userRouter)
+app.use("/posts",postRouter)
+
+
+// app.use("/",(req,res)=>{
+//     res.send("post app")
+//     console.log("post app")
+// })
 
   const PORT = process.env.PORT || 3000;
 
