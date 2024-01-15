@@ -1,19 +1,19 @@
 
 const cors = require('cors');
 require('dotenv').config();
-// const bodyParser = require('body-parser');
-
-const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const express = require('express');
+
  
 const {connection} = require("./db")
-const {userRouter}= require("./Routes/user.routes");
+const {userRouter}= require('./Routes/user.routes');
 const {postRouter} = require('./Routes/post.routes');
 
 const app = express();
 
 app.use(express.json())
-// app.use(express.static('public'));
+app.use(express.static('public'));
  app.use(cors())
 
   
